@@ -2,37 +2,66 @@ import './App.css';
 import React from 'react';
 import { Layout, Typography, Avatar, Menu, Breadcrumb } from 'antd';
 import User from "./images/hacker.png";
+import ReactImg from "./images/react.png";
+import Angular from "./images/angular.png";
+import Mui from "./images/mui.png";
+import Vue from "./images/vue.jpeg";
 import 'antd/dist/reset.css';
-const { Title } = Typography;
-const { Header, Footer, Sider, Content } = Layout;
+import CardItem from './components/Card';
 
 
 function App() {
 
+const { Title } = Typography;
+const { Header, Footer, Sider, Content } = Layout;
+
   let arr = [
     {
-      key: '1',
-      label: 'nav 1',
+      key: 'Dashboard',
+      label: 'Dashboard',
     },
     {
-      key: '2',
-      label: 'nav 2',
+      key: 'Languages',
+      label: 'Languages',
     },
     {
-      key: '3',
-      label: 'nav 3',
+      key: 'Frameworks',
+      label: 'Frameworks',
     },
     {
-      key: '4',
-      label: 'nav 4',
+      key: 'Source',
+      label: 'Source',
+    },
+  ];
+
+  const ItemList = [
+    {
+      id: "1",
+      img: ReactImg,
+      title: "ReactJS Library",
+      avatar: "https://joeschmoe.io/api/v1/random",
+      desc:"A JavaScript library for building user interfaces"
     },
     {
-      key: '5',
-      label: 'nav 5',
+      id: "2",
+      img: Angular,
+      title: "Angular",
+      avatar: "https://joeschmoe.io/api/v1/random",
+      desc:"The modern web developer's platform"
     },
     {
-      key: '6',
-      label: 'nav 6',
+      id: "3",
+      img: Vue,
+      title: "VueJS",
+      avatar: "https://joeschmoe.io/api/v1/random",
+      desc:"An approachable, performant and versatile framework for building web user interfaces."
+    },
+    {
+      id: "4",
+      img: Mui,
+      title: "Material UI",
+      avatar: "https://joeschmoe.io/api/v1/random",
+      desc:"Move faster with intuitive React UI tools"
     },
   ]
 
@@ -48,17 +77,22 @@ function App() {
           <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={['Dashboard']}
           items={arr}
         />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
+              <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+              <Breadcrumb.Item>Blogs</Breadcrumb.Item>
+              <Breadcrumb.Item>Users</Breadcrumb.Item>
             </Breadcrumb>
-            <Content style={{backgroundColor:"#fff", margin: 0, padding: 24, height: "76vh"}}>Content</Content>
+            <Content style={{ backgroundColor: "#fff", margin: 0, padding: 24, height: "76vh" }}>
+              <Title level={2}>Dashboard</Title>
+              <div style={{display:"flex"}}>
+                <CardItem data={ItemList} />
+              </div>
+            </Content>
             <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
           </Layout>
           </Layout>
